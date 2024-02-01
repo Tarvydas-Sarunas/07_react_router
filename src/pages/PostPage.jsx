@@ -42,10 +42,11 @@ console.warn('ivyko klaida:', error);
       {mainPostArr.map((pObj) => 
       <li key={pObj.id} className="card">
           <p>id: {pObj.id}</p>
-          <h2>{pObj.title}</h2>
-          <p>{pObj.body}</p>
-          <p>{pObj.reactions}</p>
-          <p>{pObj.tags}</p>
+          <h2>{pObj.title.slice(0, 15)}...</h2>
+          <p>{pObj.body.slice(0, 50)}...</p>
+          <p>likes: {pObj.reactions}</p>
+          <p>{pObj.tags.join(', ')}</p>
+          <a className='btn' href="/posts/5">Read More...</a>
         </li>)
         }
       </ul>

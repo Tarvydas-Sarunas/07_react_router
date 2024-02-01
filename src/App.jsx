@@ -8,6 +8,7 @@ import ContactPage from './pages/ContactPage';
 import AddPost from './pages/AddPost';
 import Footer from './components/layout/Footer';
 import PostPage from './pages/PostPage';
+import SinglePost from './pages/SinglePost';
 
 export default function App() {
 
@@ -23,7 +24,17 @@ export default function App() {
   <Route path='/about' element={<AboutPages />} />
   <Route path='/contact' element={<ContactPage />} />
   <Route path='/posts' element={<PostPage />} />
+  <Route path='/posts/5' element={<SinglePost />} />
   <Route path='/add-post' element={<AddPost />} />
+  <Route
+          path='*'
+          element={
+            <div className='container'>
+              <h2>404</h2>
+              <p>not found</p>
+            </div>
+          }
+        />
 </Routes>
 
 <hr />
