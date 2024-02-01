@@ -57,6 +57,9 @@ img {
   text-align: center;
 }
 
+.item-center {
+  align-items: center;
+}
 .f-wrap {
   flex-wrap: wrap;
 }

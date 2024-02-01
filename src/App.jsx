@@ -1,19 +1,27 @@
 
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/layout/Header';
 import './styles/App.css';
+import HomePage from './pages/HomePage';
+import AboutPages from './pages/AboutPages';
+import ContactPage from './pages/ContactPage';
+import AddPost from './pages/AddPost';
 
 export default function App() {
 
   console.log('App susikure');
   return (
     <div className='App container'>
-      <h1>Hello, world!</h1>
-      <nav className='flex'>
-        <a  href="#">Home</a>
-        <a  href="#">About</a>
-        <a  href="#">Contact</a>
-      </nav>
-      <hr />
 
+      <Header />
+<hr />
+      
+<Routes>
+  <Route path='/' element={<HomePage />} />
+  <Route path='/about' element={<AboutPages />} />
+  <Route path='/contact' element={<ContactPage />} />
+  <Route path='/add-post' element={<AddPost />} />
+</Routes>
     </div>
   );
 }
