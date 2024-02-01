@@ -24,7 +24,7 @@ export default function App() {
   <Route path='/about' element={<AboutPages />} />
   <Route path='/contact' element={<ContactPage />} />
   <Route path='/posts' element={<PostPage />} />
-  <Route path='/posts/5' element={<SinglePost />} />
+  <Route path='/posts/:postId' element={<SinglePost />} />
   <Route path='/add-post' element={<AddPost />} />
   <Route
           path='*'

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const postObj = {
     "id": 1,
@@ -46,7 +47,7 @@ console.warn('ivyko klaida:', error);
           <p>{pObj.body.slice(0, 50)}...</p>
           <p>likes: {pObj.reactions}</p>
           <p>{pObj.tags.join(', ')}</p>
-          <a className='btn' href="/posts/5">Read More...</a>
+          <Link className='btn' to={`/posts/${pObj.id}`}>Read More...</Link>
         </li>)
         }
       </ul>

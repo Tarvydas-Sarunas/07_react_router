@@ -11,7 +11,7 @@ export default function Header() {
         <NavLink to={"/"}>Home</NavLink>
         <NavLink to={"/about"}>About</NavLink>
         <NavLink to={"/contact"}>Contact</NavLink>
-        <NavLink to={"/posts"}>Our Posts</NavLink>
+        <NavLink end to={"/posts"}>Our Posts</NavLink>
         <NavLink to={"/add-post"}>Create Post</NavLink>
       </nav>
   
