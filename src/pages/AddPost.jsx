@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function AddPost() {
 
-  /**
-   * 
-   * @param {SubmitEvent} e 
-   */
+  const [inputsObj, setInputsObj] = useState({
+    title: 'Cia yra title',
+    author: 'James Band',
+  })
+
+function handleTitleInput(e) {
+  const reiksme = e.target.value
+  setInputsObj({...inputsObj, title: reiksme})
+}
+function handleAuthorInput(e) {
+  const reiksme = e.target.value
+  setInputsObj({...inputsObj, author: reiksme})
+}
+
   function handleNewPostFormSubmit(e) {
     e.preventDefault()
 
@@ -21,11 +31,11 @@ export default function AddPost() {
      <form onSubmit={handleNewPostFormSubmit} className='add-post-form'>
       <label>
         <span>Title</span>
-        <input type="text" placeholder='Title'/>
+        <input value={inputsObj.title} onChange={handleTitleInput} type="text" placeholder='Title'/>
       </label>
       <label>
         <span>Author</span>
-        <input type="text" placeholder='Author'/>
+        <input value={inputsObj.author} onChange={handleAuthorInput} type="text" placeholder='Author'/>
       </label>
       <label>
         <span>Body</span>
