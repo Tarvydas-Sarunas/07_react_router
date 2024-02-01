@@ -10,11 +10,11 @@ export default function AddPost() {
     author: 'James Band',
     tags: 'blue, yellow, red,green',
     body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit explicabo quod sapiente aliquam excepturi, perferendis quia exercitationem ipsam ratione nostrum!',
-    userId: 5,
+    userId: 555,
   })
 
   const [errorMsg, setErrorMsg] = useState('')
-const [okMsg, setOkMsg] = useState('')
+const [formSuccess, setFormSuccess] = useState(false)
 
 function hundleInput(e) {
 const {value, name} = e.target
@@ -65,33 +65,31 @@ try {
   body: JSON.stringify(whatToSend)
 })
 console.log('resp ===', resp);
-showOk(resp)
+
 const postResult = await resp.json()
 console.log('postResult ===', postResult);
-showError(postResult)
+if (!resp.ok) {
+  setErrorMsg(postResult.message)
+} else {
+  setFormSuccess(true)
+}
 
 } catch (error) {
   console.warn('sendToBackEnd error ===', error);
+  console.log('error ===', error);
+  
 }
   }
 
-  function showError(errorMsg) {
-const msg = errorMsg.message
-setErrorMsg(msg)
+  if (formSuccess === true) {
+return (<div>
+  <h1>Thank for your input</h1>
+</div>)
   }
-
-  function showOk(okMsge) {
-if(okMsge.status === 200) {
-  const message = 'Your post was send'
-  return setOkMsg(message)
-}
-setOkMsg(okMsg)
-  }
-  console.log('okMsg ===', okMsg);
   return (
     <div className='container'>
       <h1>Create Post</h1>
-      {errorMsg && <h3 className='error'>{errorMsg}</h3>}
+      
       <Link to={'/'}>Back to Home</Link>
 
      <form onSubmit={handleNewPostFormSubmit} className='add-post-form'>
@@ -111,7 +109,7 @@ setOkMsg(okMsg)
         <span>Body</span>
         <textarea value={inputsObj.body} onChange={hundleInput} name='body' cols="30" rows="10"></textarea>
       </label>
-      {okMsg && <h3 className='success'>{okMsg}</h3>}
+      {errorMsg && <h3 className='error'>{errorMsg}</h3>}
       <button className='btn' type='submit'>Create post</button>
      </form>
 

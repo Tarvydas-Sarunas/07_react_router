@@ -7,6 +7,7 @@ import AboutPages from './pages/AboutPages';
 import ContactPage from './pages/ContactPage';
 import AddPost from './pages/AddPost';
 import Footer from './components/layout/Footer';
+import PostPage from './pages/PostPage';
 
 export default function App() {
 
@@ -21,6 +22,7 @@ export default function App() {
   <Route path='/' element={<HomePage />} />
   <Route path='/about' element={<AboutPages />} />
   <Route path='/contact' element={<ContactPage />} />
+  <Route path='/posts' element={<PostPage />} />
   <Route path='/add-post' element={<AddPost />} />
 </Routes>
 
